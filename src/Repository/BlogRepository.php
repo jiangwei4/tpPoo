@@ -11,7 +11,7 @@ use Ramsey\Uuid\Uuid;
  * @method Blog[]    findAll()
  * @method Blog[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BlogRepository implements \App\Repository\Blog
+class BlogRepository implements Blog
 {
     private $blog = [];
 
@@ -19,7 +19,7 @@ class BlogRepository implements \App\Repository\Blog
     {
         $uuid = '69e7a80b-925d-4670-a264-912a67523f5a';
 
-        $this->blog[$uuid] = new BlogEntity( $uuid,'je sais pas','je taime', 'presley','');
+        $this->blog[$uuid] = new BlogEntity( $uuid,'date','titre', 'donovan','text');
 
 
     }
