@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Symfony\Component\Validator\Constraints\Date;
+
 
 final class Blog{
     private $date;
@@ -12,26 +12,23 @@ final class Blog{
     private $auteur;
     private $text;
 
-    public function __construct(Date $date, string $titre, string $auteur, string $text)
+    public function __construct()
     {
-        $this->date = $date;
-        $this->auteur = $auteur;
-        $this->text = $text;
-        $this->titre = $titre;
     }
 
     /**
-     * @return Date
+    $this->titre = $titre;
+     * @return string
      */
-    public function getDate(): Date
+    public function getDate(): string
     {
         return $this->date;
     }
 
     /**
-     * @param Date $date
+     * @param string $date
      */
-    public function setDate(Date $date): void
+    public function setDate(string $date): void
     {
         $this->date = $date;
     }
@@ -83,6 +80,7 @@ final class Blog{
     {
         $this->text = $text;
     }
+
 
 
 }

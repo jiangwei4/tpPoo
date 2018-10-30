@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controller;
+
 interface Affichable {
     public function affiche();
 }
