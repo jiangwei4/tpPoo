@@ -2,10 +2,7 @@
 declare(strict_types=1);
 namespace App\Repository;
 
-use App\Entity\Blog;
 use App\Entity\BlogEntity;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -29,7 +26,7 @@ class BlogRepository implements \App\Repository\Blog
 
     public function find(string $id): BlogEntity
     {
-        if (!isset($this->post[$id])) {
+        if (!isset($this->blog[$id])) {
             throw new \LogicException('Id does not exist');
         }
 
@@ -38,8 +35,9 @@ class BlogRepository implements \App\Repository\Blog
 
     public function create(string $title): BlogEntity
     {
-        return new BlogEntity((Uuid::uuid4())->toString(), $title,'je taime','presley','');
+        return new BlogEntity((Uuid::uuid4())->toString(), $title,'titre du blog','donovan','voici le texte');
     }
+
 
 //    /**
 //     * @return Blog[] Returns an array of Blog objects

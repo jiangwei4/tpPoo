@@ -38,7 +38,7 @@ class BlogEntity
 
     public function __toString()
     {
-        return ' TODO: Implement __toString() method.';
+        return 'id : '.$this->id.'  titre : '.$this->titre.' auteur : '.$this->auteur.' date : '.$this->date.'  text : '.$this->text;
     }
 public function __construct(string $id, string $date, string $titre, string $auteur, string $text)
 {

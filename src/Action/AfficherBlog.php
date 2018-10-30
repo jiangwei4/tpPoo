@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace App\Action;
 
+use App\Entity\BlogEntity;
 use App\Event\BlogRegisteredEvent;
 use App\Repository\Blog;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -22,10 +23,10 @@ Class AfficherBlog {
     public function handle(Request $request,EventDispatcherInterface $eventDispatcher , Blog $blog): Response
     {
         $value = $request->query->get('param1');
-        $this->blog->find($value);
-        $event = new BlogRegisteredEvent($blog);
+        $LeBlog = $this->blog->find($value);
+        $event = new BlogRegisteredEvent($LeBlog);
         $eventDispatcher->dispatch(BlogRegisteredEvent::NAME,$event);
-        return new Response($this->renderer->render('Blog.html.twig'));
+        return new Response($this->renderer->render('Blog.html.twig',['blog' => $LeBlog]));
     }
 
 }

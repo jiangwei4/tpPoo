@@ -1,7 +1,7 @@
 <?php
 namespace App\Event;
 
-use App\Entity\Blog;
+use App\Entity\BlogEntity;
 use Symfony\Component\EventDispatcher\Event;
 
 class BlogRegisteredEvent extends Event {
@@ -9,11 +9,11 @@ class BlogRegisteredEvent extends Event {
 
     protected $blog;
 
-    public function __construct(Blog $blog)
+    public function __construct(BlogEntity $blog)
     {
         $this->blog =$blog;
     }
-    public function getBlog(): Blog{
+    public function getBlog(): BlogEntity{
         return $this->blog;
     }
 }
