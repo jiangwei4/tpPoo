@@ -1,16 +1,16 @@
 <?php
 namespace App\Service;
 
-use App\Entity\Blog as BlogEntity;
+use App\Entity\BlogEntity as BlogEntity;
 use App\Repository\Blog;
 use App\Validator\Validator;
 
-class PostService
+class BlogService
 {
 private $validator;
 private $repository;
 
-public function __construct(Validator $validator, Blog $blogRepository)
+public function __construct(\Validator $validator, Blog $blogRepository)
 {
 $this->validator = $validator;
 $this->repository = $blogRepository;

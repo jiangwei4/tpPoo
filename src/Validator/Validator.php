@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-
-interface Validator{
+namespace App\Validator;
+ interface Validator{
     /**
      * @param string value
      * @throws \LogicException

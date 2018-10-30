@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BlogRepository")
  */
-class Blog
+class BlogEntity
 {
     /**
      * @ORM\Id()
@@ -36,5 +36,19 @@ class Blog
      */
     private $text;
 
-
+    public function __toString()
+    {
+        return ' TODO: Implement __toString() method.';
+    }
+public function __construct(string $id, string $date, string $titre, string $auteur, string $text)
+{
+    $this->text = $text;
+    $this->id = $id;
+    $this->titre = $titre;
+    $this->date = $date;
+    $this->auteur = $auteur;
+}
+public function getTitre(){
+        return $this->titre;
+}
 }

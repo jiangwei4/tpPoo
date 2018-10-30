@@ -6,24 +6,12 @@ namespace App\Repository;
 
 
 
-final class Blog{
-    private $date;
-    private $titre;
-    private $auteur;
-    private $text;
+use App\Entity\BlogEntity;
 
-    public function __construct(string $date, string $titre,string $auteur, string $text)
-    {
-        $this->date = $date;
-        $this->titre = $titre;
-        $this->auteur = $auteur;
-        $this->text = $text;
-    }
+interface Blog{
 
-    public function __toString()
-    {
-        return 'date : '.$this->date.' titre : '. $this->titre.' auteur : '.$this->auteur.'  text : '.$this->text;
-    }
+public function find(string $id): BlogEntity;
+public function create(string $titre): BlogEntity;
 
 
 }

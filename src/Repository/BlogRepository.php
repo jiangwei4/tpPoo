@@ -3,8 +3,10 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Entity\Blog;
+use App\Entity\BlogEntity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Ramsey\Uuid\Uuid;
 
 /**
  * @method Blog|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,11 +14,31 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Blog[]    findAll()
  * @method Blog[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BlogRepository extends ServiceEntityRepository
+class BlogRepository implements \App\Repository\Blog
 {
-    public function __construct(RegistryInterface $registry)
+    private $blog = [];
+
+    public function __construct()
     {
-        parent::__construct($registry, Blog::class);
+        $uuid = '69e7a80b-925d-4670-a264-912a67523f5a';
+
+        $this->blog[$uuid] = new BlogEntity( $uuid,'je sais pas','je taime', 'presley','');
+
+
+    }
+
+    public function find(string $id): BlogEntity
+    {
+        if (!isset($this->post[$id])) {
+            throw new \LogicException('Id does not exist');
+        }
+
+        return $this->blog[$id];
+    }
+
+    public function create(string $title): BlogEntity
+    {
+        return new BlogEntity((Uuid::uuid4())->toString(), $title,'je taime','presley','');
     }
 
 //    /**
