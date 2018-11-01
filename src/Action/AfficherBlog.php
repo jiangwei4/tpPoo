@@ -22,7 +22,7 @@ Class AfficherBlog {
 
     public function handle(Request $request,EventDispatcherInterface $eventDispatcher , Blog $blog): Response
     {
-        $value = $request->query->get('param1');
+        $value = $request->query->get('id');
         $LeBlog = $this->blog->find($value);
         $event = new BlogRegisteredEvent($LeBlog);
         $eventDispatcher->dispatch(BlogRegisteredEvent::NAME,$event);

@@ -6,7 +6,6 @@ use App\Entity\BlogEntity;
 use Ramsey\Uuid\Uuid;
 
 /**
- * @method Blog|null find($id, $lockMode = null, $lockVersion = null)
  * @method Blog|null findOneBy(array $criteria, array $orderBy = null)
  * @method Blog[]    findAll()
  * @method Blog[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
@@ -17,8 +16,7 @@ class BlogRepository implements Blog
 
     public function __construct()
     {
-        $uuid = '69e7a80b-925d-4670-a264-912a67523f5a';
-
+        $uuid = 'test';
         $this->blog[$uuid] = new BlogEntity( $uuid,'date','titre', 'donovan','text');
 
 
